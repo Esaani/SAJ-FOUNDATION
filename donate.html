@@ -4,7 +4,7 @@
 <!-- Mirrored from themewagon.github.io/welfare/donate.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 07 Mar 2025 10:19:35 GMT -->
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
 <head>
-    <title>Welfare - Free Bootstrap 4 Template by Colorlib</title>
+    <title>SAJ Foundation - Donate</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
@@ -29,12 +29,221 @@
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        .donation-frequency {
+            margin-bottom: 2rem;
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 15px;
+        }
+        .frequency-btn {
+            padding: 12px 35px;
+            border: 2px solid #007bff;
+            background: transparent;
+            color: #007bff;
+            border-radius: 30px;
+            margin: 0 10px;
+            transition: all 0.3s;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .frequency-btn:hover {
+            background: rgba(0,123,255,0.1);
+        }
+        .frequency-btn.active {
+            background: #007bff;
+            color: white;
+            box-shadow: 0 4px 15px rgba(0,123,255,0.2);
+        }
+        .amount-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 2rem;
+        }
+        .amount-btn {
+            padding: 20px 15px;
+            border: 2px solid #e9ecef;
+            background: white;
+            border-radius: 12px;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            cursor: pointer;
+            font-weight: 500;
+        }
+        .amount-btn:hover {
+            border-color: #007bff;
+            color: #007bff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .amount-btn.active {
+            background: #007bff;
+            color: white;
+            border-color: #007bff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,123,255,0.2);
+        }
+        .custom-amount {
+            margin-bottom: 2rem;
+        }
+        .custom-amount input {
+            padding: 15px;
+            font-size: 1.1rem;
+            border: 2px solid #e9ecef;
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+        .custom-amount input:focus {
+            border-color: #007bff;
+            box-shadow: 0 4px 15px rgba(0,123,255,0.1);
+        }
+        .founder-message {
+            background: #f8f9fa;
+            padding: 2.5rem;
+            border-radius: 20px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .founder-message h2 {
+            color: #2d3436;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        .founder-message p {
+            color: #636e72;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+        .founder-message .highlight {
+            color: #007bff;
+            font-weight: 500;
+        }
+        .form-control {
+            padding: 12px 15px;
+            border: 2px solid #e9ecef;
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+        .form-control:focus {
+            border-color: #007bff;
+            box-shadow: 0 4px 15px rgba(0,123,255,0.1);
+        }
+        .btn-primary {
+            padding: 15px 30px;
+            border-radius: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,123,255,0.2);
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .section-title h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #2d3436;
+            margin-bottom: 1rem;
+        }
+        .section-title p {
+            color: #636e72;
+            font-size: 1.1rem;
+        }
+        .country-select-wrapper {
+            position: relative;
+        }
+        
+        .country-select-popup {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 12px;
+            max-height: 300px;
+            overflow-y: auto;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-top: 5px;
+        }
+
+        .country-select-popup.active {
+            display: block;
+        }
+
+        .country-search {
+            position: sticky;
+            top: 0;
+            padding: 15px;
+            background: white;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .country-search input {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        .country-list {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        .country-item {
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .country-item:hover {
+            background: #f8f9fa;
+        }
+
+        .selected-country {
+            padding: 12px 15px;
+            border: 2px solid #e9ecef;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .selected-country:hover {
+            border-color: #007bff;
+        }
+
+        .selected-country:after {
+            content: '▼';
+            font-size: 12px;
+            color: #666;
+        }
+
+        .selected-country.active:after {
+            content: '▲';
+        }
+    </style>
   </head>
   <body>
     
   <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
-      <a class="navbar-brand" href="index.html">Welfare</a>
+      <a class="navbar-brand" href="index.html">SAJ Foundation</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="oi oi-menu"></span> Menu
       </button>
@@ -61,187 +270,310 @@
         <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
           <div class="col-md-7 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
              <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="index.html">Home</a></span> <span>Donate</span></p>
-            <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Donations</h1>
+            <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Support Us</h1>
           </div>
         </div>
       </div>
     </div>
 
-    
     <section class="ftco-section bg-light">
-      <div class="container">
-        <div class="row">
-        	<div class="col-lg-4 d-flex mb-sm-4 ftco-animate">
-        		<div class="staff">
-        			<div class="d-flex mb-4">
-        				<div class="img" style="background-image: url(images/person_1.jpg);"></div>
-        				<div class="info ml-4">
-        					<h3><a href="teacher-single.html">Ivan Jacobson</a></h3>
-        					<span class="position">Donated Just now</span>
-        					<div class="text">
-		        				<p>Donated <span>$300</span> for <a href="#">Children Needs Food</a></p>
-		        			</div>
-        				</div>
-        			</div>
-        		</div>
-        	</div>
-        	<div class="col-lg-4 d-flex mb-sm-4 ftco-animate">
-        		<div class="staff">
-        			<div class="d-flex mb-4">
-        				<div class="img" style="background-image: url(images/person_2.jpg);"></div>
-        				<div class="info ml-4">
-        					<h3><a href="teacher-single.html">Ivan Jacobson</a></h3>
-        					<span class="position">Donated Just now</span>
-        					<div class="text">
-		        				<p>Donated <span>$150</span> for <a href="#">Children Needs Food</a></p>
-		        			</div>
-        				</div>
-        			</div>
-        		</div>
-        	</div>
-        	<div class="col-lg-4 d-flex mb-sm-4 ftco-animate">
-        		<div class="staff">
-        			<div class="d-flex mb-4">
-        				<div class="img" style="background-image: url(images/person_3.jpg);"></div>
-        				<div class="info ml-4">
-        					<h3><a href="teacher-single.html">Ivan Jacobson</a></h3>
-        					<span class="position">Donated Just now</span>
-        					<div class="text">
-		        				<p>Donated <span>$250</span> for <a href="#">Children Needs Food</a></p>
-		        			</div>
-        				</div>
-        			</div>
-        		</div>
-        	</div>
-        	<div class="col-lg-4 d-flex mb-sm-4 ftco-animate">
-        		<div class="staff">
-        			<div class="d-flex mb-4">
-        				<div class="img" style="background-image: url(images/person_4.jpg);"></div>
-        				<div class="info ml-4">
-        					<h3><a href="teacher-single.html">Ivan Jacobson</a></h3>
-        					<span class="position">Donated Just now</span>
-        					<div class="text">
-		        				<p>Donated <span>$300</span> for <a href="#">Children Needs Food</a></p>
-		        			</div>
-        				</div>
-        			</div>
-        		</div>
-        	</div>
-        	<div class="col-lg-4 d-flex mb-sm-4 ftco-animate">
-        		<div class="staff">
-        			<div class="d-flex mb-4">
-        				<div class="img" style="background-image: url(images/person_5.jpg);"></div>
-        				<div class="info ml-4">
-        					<h3><a href="teacher-single.html">Ivan Jacobson</a></h3>
-        					<span class="position">Donated Just now</span>
-        					<div class="text">
-		        				<p>Donated <span>$150</span> for <a href="#">Children Needs Food</a></p>
-		        			</div>
-        				</div>
-        			</div>
-        		</div>
-        	</div>
-        	<div class="col-lg-4 d-flex mb-sm-4 ftco-animate">
-        		<div class="staff">
-        			<div class="d-flex mb-4">
-        				<div class="img" style="background-image: url(images/person_6.jpg);"></div>
-        				<div class="info ml-4">
-        					<h3><a href="teacher-single.html">Ivan Jacobson</a></h3>
-        					<span class="position">Donated Just now</span>
-        					<div class="text">
-		        				<p>Donated <span>$250</span> for <a href="#">Children Needs Food</a></p>
-		        			</div>
-        				</div>
-        			</div>
-        		</div>
-        	</div>
-        	<div class="col-lg-4 d-flex mb-sm-4 ftco-animate">
-        		<div class="staff">
-        			<div class="d-flex mb-4">
-        				<div class="img" style="background-image: url(images/person_7.jpg);"></div>
-        				<div class="info ml-4">
-        					<h3><a href="teacher-single.html">Ivan Jacobson</a></h3>
-        					<span class="position">Donated Just now</span>
-        					<div class="text">
-		        				<p>Donated <span>$300</span> for <a href="#">Children Needs Food</a></p>
-		        			</div>
-        				</div>
-        			</div>
-        		</div>
-        	</div>
-        	<div class="col-lg-4 d-flex mb-sm-4 ftco-animate">
-        		<div class="staff">
-        			<div class="d-flex mb-4">
-        				<div class="img" style="background-image: url(images/person_8.jpg);"></div>
-        				<div class="info ml-4">
-        					<h3><a href="teacher-single.html">Ivan Jacobson</a></h3>
-        					<span class="position">Donated Just now</span>
-        					<div class="text">
-		        				<p>Donated <span>$150</span> for <a href="#">Children Needs Food</a></p>
-		        			</div>
-        				</div>
-        			</div>
-        		</div>
-        	</div>
-        	<div class="col-lg-4 d-flex mb-sm-4 ftco-animate">
-        		<div class="staff">
-        			<div class="d-flex mb-4">
-        				<div class="img" style="background-image: url(images/person_9.jpg);"></div>
-        				<div class="info ml-4">
-        					<h3><a href="teacher-single.html">Ivan Jacobson</a></h3>
-        					<span class="position">Donated Just now</span>
-        					<div class="text">
-		        				<p>Donated <span>$250</span> for <a href="#">Children Needs Food</a></p>
-		        			</div>
-        				</div>
-        			</div>
-        		</div>
-        	</div>
-        </div>
-        <div class="row mt-5">
-          <div class="col text-center">
-            <div class="block-27">
-              <ul>
-                <li><a href="#">&lt;</a></li>
-                <li class="active"><span>1</span></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li><a href="#">&gt;</a></li>
-              </ul>
+        <div class="container">
+            <div class="section-title">
+                <h1>Support Our Cause</h1>
+                <p>Your generosity can make a real difference in someone's life</p>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="founder-message">
+                        <h2 class="mb-4">Message from Our Founder</h2>
+                        <p>"At SAJ Foundation, we believe in the power of collective giving. Every contribution, no matter the size, has the potential to transform lives. <span class="highlight">We've witnessed countless stories of hope and change, made possible by the generosity of people like you.</span> Together, we can create lasting impact in our communities and build a better future for those in need."</p>
+                        <img src="images/qr-code.png" alt="Donation QR Code" class="img-fluid mt-4" style="max-width: 200px;">
+                    </div>
+                </div>
 
-    <section class="ftco-section-3 img" style="background-image: url(images/bg_3.jpg);">
-    	<div class="overlay"></div>
-    	<div class="container">
-    		<div class="row d-md-flex">
-    		<div class="col-md-6 d-flex ftco-animate">
-    			<div class="img img-2 align-self-stretch" style="background-image: url(images/bg_4.jpg);"></div>
-    		</div>
-    		<div class="col-md-6 volunteer pl-md-5 ftco-animate">
-    			<h3 class="mb-3">Be a volunteer</h3>
-    			<form action="#" class="volunter-form">
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="Your Name">
+                <div class="col-md-6">
+                    <div class="donation-form">
+                        <h3 class="mb-4">How frequently would you like to donate?</h3>
+                        
+                        <div class="donation-frequency text-center">
+                            <button class="frequency-btn active">One Time</button>
+                            <button class="frequency-btn">Monthly</button>
+                        </div>
+
+                        <div class="amount-grid">
+                            <button class="amount-btn">GH₵50</button>
+                            <button class="amount-btn">GH₵100</button>
+                            <button class="amount-btn">GH₵500</button>
+                            <button class="amount-btn">GH₵1,000</button>
+                            <button class="amount-btn">GH₵1,500</button>
+                            <button class="amount-btn">GH₵5,000</button>
+                        </div>
+
+                        <div class="custom-amount">
+                            <input type="text" class="form-control" placeholder="Enter custom amount (GH₵)">
+                        </div>
+
+                        <h3 class="mb-4">Your personal details</h3>
+                        <form>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="First name" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Last name" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control" placeholder="Email" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="tel" class="form-control" placeholder="Phone" required>
+                            </div>
+                            <div class="form-group">
+                                <div class="country-select-wrapper">
+                                    <input type="hidden" name="country" id="selectedCountryInput" required>
+                                    <div class="selected-country" id="selectedCountry">Select Country</div>
+                                    <div class="country-select-popup">
+                                        <div class="country-search">
+                                            <input type="text" placeholder="Search country..." id="countrySearch">
+                                        </div>
+                                        <ul class="country-list" id="countryList">
+                                            <li class="country-item" data-value="GH">Ghana</li>
+                                            <li class="country-item" data-value="AF">Afghanistan</li>
+                                            <li class="country-item" data-value="AL">Albania</li>
+                                            <li class="country-item" data-value="DZ">Algeria</li>
+                                            <li class="country-item" data-value="AD">Andorra</li>
+                                            <li class="country-item" data-value="AO">Angola</li>
+                                            <li class="country-item" data-value="AG">Antigua and Barbuda</li>
+                                            <li class="country-item" data-value="AR">Argentina</li>
+                                            <li class="country-item" data-value="AM">Armenia</li>
+                                            <li class="country-item" data-value="AU">Australia</li>
+                                            <li class="country-item" data-value="AT">Austria</li>
+                                            <li class="country-item" data-value="AZ">Azerbaijan</li>
+                                            <li class="country-item" data-value="BS">Bahamas</li>
+                                            <li class="country-item" data-value="BH">Bahrain</li>
+                                            <li class="country-item" data-value="BD">Bangladesh</li>
+                                            <li class="country-item" data-value="BB">Barbados</li>
+                                            <li class="country-item" data-value="BY">Belarus</li>
+                                            <li class="country-item" data-value="BE">Belgium</li>
+                                            <li class="country-item" data-value="BZ">Belize</li>
+                                            <li class="country-item" data-value="BJ">Benin</li>
+                                            <li class="country-item" data-value="BT">Bhutan</li>
+                                            <li class="country-item" data-value="BO">Bolivia</li>
+                                            <li class="country-item" data-value="BA">Bosnia and Herzegovina</li>
+                                            <li class="country-item" data-value="BW">Botswana</li>
+                                            <li class="country-item" data-value="BR">Brazil</li>
+                                            <li class="country-item" data-value="BN">Brunei</li>
+                                            <li class="country-item" data-value="BG">Bulgaria</li>
+                                            <li class="country-item" data-value="BF">Burkina Faso</li>
+                                            <li class="country-item" data-value="BI">Burundi</li>
+                                            <li class="country-item" data-value="KH">Cambodia</li>
+                                            <li class="country-item" data-value="CM">Cameroon</li>
+                                            <li class="country-item" data-value="CA">Canada</li>
+                                            <li class="country-item" data-value="CV">Cape Verde</li>
+                                            <li class="country-item" data-value="CF">Central African Republic</li>
+                                            <li class="country-item" data-value="TD">Chad</li>
+                                            <li class="country-item" data-value="CL">Chile</li>
+                                            <li class="country-item" data-value="CN">China</li>
+                                            <li class="country-item" data-value="CO">Colombia</li>
+                                            <li class="country-item" data-value="KM">Comoros</li>
+                                            <li class="country-item" data-value="CG">Congo</li>
+                                            <li class="country-item" data-value="CD">DR Congo</li>
+                                            <li class="country-item" data-value="CR">Costa Rica</li>
+                                            <li class="country-item" data-value="CI">Côte d'Ivoire</li>
+                                            <li class="country-item" data-value="HR">Croatia</li>
+                                            <li class="country-item" data-value="CU">Cuba</li>
+                                            <li class="country-item" data-value="CY">Cyprus</li>
+                                            <li class="country-item" data-value="CZ">Czech Republic</li>
+                                            <li class="country-item" data-value="DK">Denmark</li>
+                                            <li class="country-item" data-value="DJ">Djibouti</li>
+                                            <li class="country-item" data-value="DM">Dominica</li>
+                                            <li class="country-item" data-value="DO">Dominican Republic</li>
+                                            <li class="country-item" data-value="EC">Ecuador</li>
+                                            <li class="country-item" data-value="EG">Egypt</li>
+                                            <li class="country-item" data-value="SV">El Salvador</li>
+                                            <li class="country-item" data-value="GQ">Equatorial Guinea</li>
+                                            <li class="country-item" data-value="ER">Eritrea</li>
+                                            <li class="country-item" data-value="EE">Estonia</li>
+                                            <li class="country-item" data-value="ET">Ethiopia</li>
+                                            <li class="country-item" data-value="FJ">Fiji</li>
+                                            <li class="country-item" data-value="FI">Finland</li>
+                                            <li class="country-item" data-value="FR">France</li>
+                                            <li class="country-item" data-value="GA">Gabon</li>
+                                            <li class="country-item" data-value="GM">Gambia</li>
+                                            <li class="country-item" data-value="GE">Georgia</li>
+                                            <li class="country-item" data-value="DE">Germany</li>
+                                            <li class="country-item" data-value="GR">Greece</li>
+                                            <li class="country-item" data-value="GD">Grenada</li>
+                                            <li class="country-item" data-value="GT">Guatemala</li>
+                                            <li class="country-item" data-value="GN">Guinea</li>
+                                            <li class="country-item" data-value="GW">Guinea-Bissau</li>
+                                            <li class="country-item" data-value="GY">Guyana</li>
+                                            <li class="country-item" data-value="HT">Haiti</li>
+                                            <li class="country-item" data-value="HN">Honduras</li>
+                                            <li class="country-item" data-value="HK">Hong Kong</li>
+                                            <li class="country-item" data-value="HU">Hungary</li>
+                                            <li class="country-item" data-value="IS">Iceland</li>
+                                            <li class="country-item" data-value="IN">India</li>
+                                            <li class="country-item" data-value="ID">Indonesia</li>
+                                            <li class="country-item" data-value="IR">Iran</li>
+                                            <li class="country-item" data-value="IQ">Iraq</li>
+                                            <li class="country-item" data-value="IE">Ireland</li>
+                                            <li class="country-item" data-value="IL">Israel</li>
+                                            <li class="country-item" data-value="IT">Italy</li>
+                                            <li class="country-item" data-value="JM">Jamaica</li>
+                                            <li class="country-item" data-value="JP">Japan</li>
+                                            <li class="country-item" data-value="JO">Jordan</li>
+                                            <li class="country-item" data-value="KZ">Kazakhstan</li>
+                                            <li class="country-item" data-value="KE">Kenya</li>
+                                            <li class="country-item" data-value="KI">Kiribati</li>
+                                            <li class="country-item" data-value="KP">North Korea</li>
+                                            <li class="country-item" data-value="KR">South Korea</li>
+                                            <li class="country-item" data-value="KW">Kuwait</li>
+                                            <li class="country-item" data-value="KG">Kyrgyzstan</li>
+                                            <li class="country-item" data-value="LA">Laos</li>
+                                            <li class="country-item" data-value="LV">Latvia</li>
+                                            <li class="country-item" data-value="LB">Lebanon</li>
+                                            <li class="country-item" data-value="LS">Lesotho</li>
+                                            <li class="country-item" data-value="LR">Liberia</li>
+                                            <li class="country-item" data-value="LY">Libya</li>
+                                            <li class="country-item" data-value="LI">Liechtenstein</li>
+                                            <li class="country-item" data-value="LT">Lithuania</li>
+                                            <li class="country-item" data-value="LU">Luxembourg</li>
+                                            <li class="country-item" data-value="MO">Macao</li>
+                                            <li class="country-item" data-value="MG">Madagascar</li>
+                                            <li class="country-item" data-value="MW">Malawi</li>
+                                            <li class="country-item" data-value="MY">Malaysia</li>
+                                            <li class="country-item" data-value="MV">Maldives</li>
+                                            <li class="country-item" data-value="ML">Mali</li>
+                                            <li class="country-item" data-value="MT">Malta</li>
+                                            <li class="country-item" data-value="MH">Marshall Islands</li>
+                                            <li class="country-item" data-value="MR">Mauritania</li>
+                                            <li class="country-item" data-value="MU">Mauritius</li>
+                                            <li class="country-item" data-value="MX">Mexico</li>
+                                            <li class="country-item" data-value="FM">Micronesia</li>
+                                            <li class="country-item" data-value="MD">Moldova</li>
+                                            <li class="country-item" data-value="MC">Monaco</li>
+                                            <li class="country-item" data-value="MN">Mongolia</li>
+                                            <li class="country-item" data-value="ME">Montenegro</li>
+                                            <li class="country-item" data-value="MA">Morocco</li>
+                                            <li class="country-item" data-value="MZ">Mozambique</li>
+                                            <li class="country-item" data-value="MM">Myanmar</li>
+                                            <li class="country-item" data-value="NA">Namibia</li>
+                                            <li class="country-item" data-value="NR">Nauru</li>
+                                            <li class="country-item" data-value="NP">Nepal</li>
+                                            <li class="country-item" data-value="NL">Netherlands</li>
+                                            <li class="country-item" data-value="NZ">New Zealand</li>
+                                            <li class="country-item" data-value="NI">Nicaragua</li>
+                                            <li class="country-item" data-value="NE">Niger</li>
+                                            <li class="country-item" data-value="NG">Nigeria</li>
+                                            <li class="country-item" data-value="NO">Norway</li>
+                                            <li class="country-item" data-value="OM">Oman</li>
+                                            <li class="country-item" data-value="PK">Pakistan</li>
+                                            <li class="country-item" data-value="PW">Palau</li>
+                                            <li class="country-item" data-value="PA">Panama</li>
+                                            <li class="country-item" data-value="PG">Papua New Guinea</li>
+                                            <li class="country-item" data-value="PY">Paraguay</li>
+                                            <li class="country-item" data-value="PE">Peru</li>
+                                            <li class="country-item" data-value="PH">Philippines</li>
+                                            <li class="country-item" data-value="PL">Poland</li>
+                                            <li class="country-item" data-value="PT">Portugal</li>
+                                            <li class="country-item" data-value="QA">Qatar</li>
+                                            <li class="country-item" data-value="RO">Romania</li>
+                                            <li class="country-item" data-value="RU">Russia</li>
+                                            <li class="country-item" data-value="RW">Rwanda</li>
+                                            <li class="country-item" data-value="KN">Saint Kitts and Nevis</li>
+                                            <li class="country-item" data-value="LC">Saint Lucia</li>
+                                            <li class="country-item" data-value="VC">Saint Vincent</li>
+                                            <li class="country-item" data-value="WS">Samoa</li>
+                                            <li class="country-item" data-value="SM">San Marino</li>
+                                            <li class="country-item" data-value="ST">São Tomé and Príncipe</li>
+                                            <li class="country-item" data-value="SA">Saudi Arabia</li>
+                                            <li class="country-item" data-value="SN">Senegal</li>
+                                            <li class="country-item" data-value="RS">Serbia</li>
+                                            <li class="country-item" data-value="SC">Seychelles</li>
+                                            <li class="country-item" data-value="SL">Sierra Leone</li>
+                                            <li class="country-item" data-value="SG">Singapore</li>
+                                            <li class="country-item" data-value="SK">Slovakia</li>
+                                            <li class="country-item" data-value="SI">Slovenia</li>
+                                            <li class="country-item" data-value="SB">Solomon Islands</li>
+                                            <li class="country-item" data-value="SO">Somalia</li>
+                                            <li class="country-item" data-value="ZA">South Africa</li>
+                                            <li class="country-item" data-value="SS">South Sudan</li>
+                                            <li class="country-item" data-value="ES">Spain</li>
+                                            <li class="country-item" data-value="LK">Sri Lanka</li>
+                                            <li class="country-item" data-value="SD">Sudan</li>
+                                            <li class="country-item" data-value="SR">Suriname</li>
+                                            <li class="country-item" data-value="SZ">Eswatini</li>
+                                            <li class="country-item" data-value="SE">Sweden</li>
+                                            <li class="country-item" data-value="CH">Switzerland</li>
+                                            <li class="country-item" data-value="SY">Syria</li>
+                                            <li class="country-item" data-value="TW">Taiwan</li>
+                                            <li class="country-item" data-value="TJ">Tajikistan</li>
+                                            <li class="country-item" data-value="TZ">Tanzania</li>
+                                            <li class="country-item" data-value="TH">Thailand</li>
+                                            <li class="country-item" data-value="TL">Timor-Leste</li>
+                                            <li class="country-item" data-value="TG">Togo</li>
+                                            <li class="country-item" data-value="TO">Tonga</li>
+                                            <li class="country-item" data-value="TT">Trinidad and Tobago</li>
+                                            <li class="country-item" data-value="TN">Tunisia</li>
+                                            <li class="country-item" data-value="TR">Turkey</li>
+                                            <li class="country-item" data-value="TM">Turkmenistan</li>
+                                            <li class="country-item" data-value="TV">Tuvalu</li>
+                                            <li class="country-item" data-value="UG">Uganda</li>
+                                            <li class="country-item" data-value="UA">Ukraine</li>
+                                            <li class="country-item" data-value="AE">United Arab Emirates</li>
+                                            <li class="country-item" data-value="GB">United Kingdom</li>
+                                            <li class="country-item" data-value="US">United States</li>
+                                            <li class="country-item" data-value="UY">Uruguay</li>
+                                            <li class="country-item" data-value="UZ">Uzbekistan</li>
+                                            <li class="country-item" data-value="VU">Vanuatu</li>
+                                            <li class="country-item" data-value="VA">Vatican City</li>
+                                            <li class="country-item" data-value="VE">Venezuela</li>
+                                            <li class="country-item" data-value="VN">Vietnam</li>
+                                            <li class="country-item" data-value="YE">Yemen</li>
+                                            <li class="country-item" data-value="ZM">Zambia</li>
+                                            <li class="country-item" data-value="ZW">Zimbabwe</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Address Line 1" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Address Line 2">
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="City" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="State" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="dedicateDonation">
+                                    <label class="custom-control-label" for="dedicateDonation">Dedicate this donation</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary btn-lg btn-block">Donate</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="Your Email">
-            </div>
-            <div class="form-group">
-              <textarea name="" id="" cols="30" rows="3" class="form-control" placeholder="Message"></textarea>
-            </div>
-            <div class="form-group">
-              <input type="submit" value="Send Message" class="btn btn-white py-3 px-5">
-            </div>
-          </form>
-    		</div>    			
-    		</div>
-    	</div>
+        </div>
     </section>
 
     <footer class="ftco-footer ftco-section img">
@@ -346,6 +678,84 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&amp;sensor=false"></script>
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
+    
+  <script>
+    // Add click handlers for frequency buttons
+    document.querySelectorAll('.frequency-btn').forEach(button => {
+        button.addEventListener('click', () => {
+            document.querySelectorAll('.frequency-btn').forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+        });
+    });
+
+    // Add click handlers for amount buttons
+    document.querySelectorAll('.amount-btn').forEach(button => {
+        button.addEventListener('click', () => {
+            document.querySelectorAll('.amount-btn').forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            document.querySelector('.custom-amount input').value = '';
+        });
+    });
+
+    // Country Select Functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const selectedCountry = document.getElementById('selectedCountry');
+        const selectedCountryInput = document.getElementById('selectedCountryInput');
+        const countrySearch = document.getElementById('countrySearch');
+        const countryList = document.getElementById('countryList');
+        const popup = document.querySelector('.country-select-popup');
+        const countryItems = document.querySelectorAll('.country-item');
+
+        // Set Ghana as default selected country
+        selectedCountry.textContent = 'Ghana';
+        selectedCountryInput.value = 'GH';
+
+        // Toggle popup
+        selectedCountry.addEventListener('click', function() {
+            popup.classList.toggle('active');
+            selectedCountry.classList.toggle('active');
+            if (popup.classList.contains('active')) {
+                countrySearch.focus();
+            }
+        });
+
+        // Close popup when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.country-select-wrapper')) {
+                popup.classList.remove('active');
+                selectedCountry.classList.remove('active');
+            }
+        });
+
+        // Search functionality
+        countrySearch.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            countryItems.forEach(item => {
+                const countryName = item.textContent.toLowerCase();
+                item.style.display = countryName.includes(searchTerm) ? 'block' : 'none';
+            });
+        });
+
+        // Select country
+        countryItems.forEach(item => {
+            item.addEventListener('click', function() {
+                selectedCountry.textContent = this.textContent;
+                selectedCountryInput.value = this.dataset.value;
+                popup.classList.remove('active');
+                selectedCountry.classList.remove('active');
+                countrySearch.value = '';
+                countryItems.forEach(item => item.style.display = 'block');
+            });
+        });
+
+        // Prevent form submission when pressing enter in search
+        countrySearch.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+            }
+        });
+    });
+  </script>
     
   </body>
 
